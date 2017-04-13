@@ -10,6 +10,11 @@ namespace Eurecert.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<EducationType> EducationTypes { get; set; }
+        public DbSet<ReferenceMethod> ReferenceMethods { get; set; }
+        public DbSet<PublicityMethod> PublicityMethods { get; set; }
+
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -22,5 +27,11 @@ namespace Eurecert.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Eurecert.Models.EducationType> EducationType { get; set; }
+
+        public DbSet<Eurecert.Models.PublicityMethod> PublicityMethod { get; set; }
+
+        public DbSet<Eurecert.Models.ReferenceMethod> ReferenceMethod { get; set; }
     }
 }
