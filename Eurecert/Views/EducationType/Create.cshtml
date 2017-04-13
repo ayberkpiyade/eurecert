@@ -1,15 +1,14 @@
-@model Eurecert.Models.EducationType
+﻿@model Eurecert.Models.EducationType
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Eğitim Tipi Ekle";
 }
 
-<h2>Create</h2>
+<h2>Eğitim Tipi Ekle</h2>
+<br />
 
 <form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>EducationType</h4>
-        <hr />
+    <div class="form-horizontal">        
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Name" class="col-md-2 control-label"></label>
@@ -20,14 +19,14 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Kaydet" class="btn btn-default" />
             </div>
         </div>
     </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Geri</a>
 </div>
 
 @section Scripts {

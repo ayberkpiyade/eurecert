@@ -11,7 +11,7 @@ namespace Eurecert.Models
         public int Id { get; set; }
         [Required]
         [StringLength(200)]
-        [Display(Name = "Tanıtım Yöntemi Adı")]
+        [Display(Name = "Başvuru Yöntemi")]
         public string Name { get; set; }
 
     }

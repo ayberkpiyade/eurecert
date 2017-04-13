@@ -1,15 +1,14 @@
-@model Eurecert.Models.ReferenceMethod
+﻿@model Eurecert.Models.ReferenceMethod
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Başvuru Yöntemi Düzenle";
 }
 
-<h2>Edit</h2>
-
+<h2>Başvuru Yöntemi Düzenle</h2>
+<br />
 <form asp-action="Edit">
     <div class="form-horizontal">
-        <h4>ReferenceMethod</h4>
-        <hr />
+      
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
         <div class="form-group">
@@ -21,14 +20,14 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Kaydet" class="btn btn-success" />
             </div>
         </div>
     </div>
 </form>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Geri</a>
 </div>
 
 @section Scripts {
