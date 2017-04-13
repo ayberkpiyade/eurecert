@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Eurecert.Models
 {
-    public enum PublicityMethod
+    public class PublicityMethod
     {
-        Mailing = 1,
-        Presentation = 2,
-        Brochures = 3,
-        Other = 4
+        public int Id { get; set; }
+        [Required]
+        [StringLength(200)]
+        [Display(Name = "Başvuru Yöntemi")]
+        public string Name { get; set; }
     }
 }
