@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Eurecert.Models.InstitutionalFunction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Kurum İşlevi</h2>
+
+<p>
+    <a asp-action="Create">Yeni Kurum İşlevi</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FunctionCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FunctionName)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FunctionCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FunctionName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

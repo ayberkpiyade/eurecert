@@ -1,0 +1,40 @@
+﻿@model Eurecert.Models.SalesRepresentative
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <form asp-action="Delete">
+        <h4>Kişi</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <input type="hidden" asp-for="Id" />
+            <dt>
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            <a asp-action="Index">Geri</a>
+        </div>
+    </form>
+</div>

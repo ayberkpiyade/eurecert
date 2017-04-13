@@ -10,6 +10,14 @@ namespace Eurecert.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<InstitutionalFunction> InstitutionalFunctions { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<SalesRepresentative> SalesRepresentatives { get; set; }
+        public DbSet<ToBeInformed> ToBeInformeds { get; set; }
+        
+
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -22,5 +30,11 @@ namespace Eurecert.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Eurecert.Models.City> City { get; set; }
+
+        public DbSet<Eurecert.Models.ToBeInformed> ToBeInformed { get; set; }
+
+        public DbSet<Eurecert.Models.SalesRepresentative> SalesRepresentative { get; set; }
     }
 }

@@ -1,0 +1,28 @@
+﻿@model Eurecert.Models.ToBeInformed
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <form asp-action="Delete">
+        <h4>Haberdar Olma Şekli</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <input type="hidden" asp-for="Id" />
+            <dt>
+                @Html.DisplayNameFor(model => model.BeInformed)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BeInformed)
+            </dd>
+        </dl>
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            <a asp-action="Index">Geri</a>
+        </div>
+    </form>
+</div>

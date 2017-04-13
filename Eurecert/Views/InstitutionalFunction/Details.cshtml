@@ -1,0 +1,30 @@
+﻿@model Eurecert.Models.InstitutionalFunction
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Kurum İşlevi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FunctionCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FunctionCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FunctionName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FunctionName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a> |
+    <a asp-action="Index">Geri</a>
+</div>

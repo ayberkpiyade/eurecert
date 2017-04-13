@@ -1,0 +1,35 @@
+﻿@model Eurecert.Models.ToBeInformed
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Yeni Haberdar Olma Şekli</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Haberdar Olma Şekli</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="BeInformed" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BeInformed" class="form-control" />
+                <span asp-validation-for="BeInformed" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

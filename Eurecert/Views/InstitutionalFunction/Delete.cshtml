@@ -1,0 +1,36 @@
+﻿@model Eurecert.Models.InstitutionalFunction
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <form asp-action="Delete">
+        <h4>Kurum İşlevi</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <input type="hidden" asp-for="Id" />
+            <dt>
+                @Html.DisplayNameFor(model => model.FunctionCode)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FunctionCode)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FunctionName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FunctionName)
+            </dd>
+        </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            <a asp-action="Index">Geri</a>
+        </div>
+    </form>
+</div>

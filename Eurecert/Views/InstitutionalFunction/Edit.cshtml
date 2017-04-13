@@ -1,0 +1,43 @@
+﻿@model Eurecert.Models.InstitutionalFunction
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Düzenle</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Kurum İşlevi</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="FunctionCode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FunctionCode" class="form-control" />
+                <span asp-validation-for="FunctionCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FunctionName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FunctionName" class="form-control" />
+                <span asp-validation-for="FunctionName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Geri</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
