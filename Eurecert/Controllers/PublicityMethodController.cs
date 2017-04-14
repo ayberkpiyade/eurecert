@@ -22,7 +22,7 @@ namespace Eurecert.Controllers
         // GET: PublicityMethod
         public async Task<IActionResult> Index()
         {
-            return View(await _context.PublicityMethod.ToListAsync());
+            return View(await _context.PublicityMethods.ToListAsync());
         }
 
         // GET: PublicityMethod/Details/5
@@ -33,7 +33,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var publicityMethod = await _context.PublicityMethod
+            var publicityMethod = await _context.PublicityMethods
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (publicityMethod == null)
             {
@@ -73,7 +73,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var publicityMethod = await _context.PublicityMethod.SingleOrDefaultAsync(m => m.Id == id);
+            var publicityMethod = await _context.PublicityMethods.SingleOrDefaultAsync(m => m.Id == id);
             if (publicityMethod == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var publicityMethod = await _context.PublicityMethod
+            var publicityMethod = await _context.PublicityMethods
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (publicityMethod == null)
             {
@@ -139,15 +139,15 @@ namespace Eurecert.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var publicityMethod = await _context.PublicityMethod.SingleOrDefaultAsync(m => m.Id == id);
-            _context.PublicityMethod.Remove(publicityMethod);
+            var publicityMethod = await _context.PublicityMethods.SingleOrDefaultAsync(m => m.Id == id);
+            _context.PublicityMethods.Remove(publicityMethod);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         private bool PublicityMethodExists(int id)
         {
-            return _context.PublicityMethod.Any(e => e.Id == id);
+            return _context.PublicityMethods.Any(e => e.Id == id);
         }
     }
 }

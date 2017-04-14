@@ -22,7 +22,7 @@ namespace Eurecert.Controllers
         // GET: ToBeInformed
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ToBeInformed.ToListAsync());
+            return View(await _context.ToBeInformeds.ToListAsync());
         }
 
         // GET: ToBeInformed/Details/5
@@ -33,7 +33,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var toBeInformed = await _context.ToBeInformed
+            var toBeInformed = await _context.ToBeInformeds
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (toBeInformed == null)
             {
@@ -73,7 +73,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var toBeInformed = await _context.ToBeInformed.SingleOrDefaultAsync(m => m.Id == id);
+            var toBeInformed = await _context.ToBeInformeds.SingleOrDefaultAsync(m => m.Id == id);
             if (toBeInformed == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var toBeInformed = await _context.ToBeInformed
+            var toBeInformed = await _context.ToBeInformeds
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (toBeInformed == null)
             {
@@ -139,15 +139,15 @@ namespace Eurecert.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var toBeInformed = await _context.ToBeInformed.SingleOrDefaultAsync(m => m.Id == id);
-            _context.ToBeInformed.Remove(toBeInformed);
+            var toBeInformed = await _context.ToBeInformeds.SingleOrDefaultAsync(m => m.Id == id);
+            _context.ToBeInformeds.Remove(toBeInformed);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         private bool ToBeInformedExists(int id)
         {
-            return _context.ToBeInformed.Any(e => e.Id == id);
+            return _context.ToBeInformeds.Any(e => e.Id == id);
         }
     }
 }

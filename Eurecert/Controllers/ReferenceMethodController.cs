@@ -22,7 +22,7 @@ namespace Eurecert.Controllers
         // GET: ReferenceMethod
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ReferenceMethod.ToListAsync());
+            return View(await _context.ReferenceMethods.ToListAsync());
         }
 
         // GET: ReferenceMethod/Details/5
@@ -33,7 +33,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var referenceMethod = await _context.ReferenceMethod
+            var referenceMethod = await _context.ReferenceMethods
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (referenceMethod == null)
             {
@@ -73,7 +73,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var referenceMethod = await _context.ReferenceMethod.SingleOrDefaultAsync(m => m.Id == id);
+            var referenceMethod = await _context.ReferenceMethods.SingleOrDefaultAsync(m => m.Id == id);
             if (referenceMethod == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var referenceMethod = await _context.ReferenceMethod
+            var referenceMethod = await _context.ReferenceMethods
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (referenceMethod == null)
             {
@@ -139,15 +139,15 @@ namespace Eurecert.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var referenceMethod = await _context.ReferenceMethod.SingleOrDefaultAsync(m => m.Id == id);
-            _context.ReferenceMethod.Remove(referenceMethod);
+            var referenceMethod = await _context.ReferenceMethods.SingleOrDefaultAsync(m => m.Id == id);
+            _context.ReferenceMethods.Remove(referenceMethod);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         private bool ReferenceMethodExists(int id)
         {
-            return _context.ReferenceMethod.Any(e => e.Id == id);
+            return _context.ReferenceMethods.Any(e => e.Id == id);
         }
     }
 }

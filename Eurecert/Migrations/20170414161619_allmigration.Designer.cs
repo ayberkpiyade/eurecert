@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Eurecert.Data;
 
-namespace Eurecert.Data.Migrations
+namespace Eurecert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170414161619_allmigration")]
+    partial class allmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -81,7 +82,7 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("Eurecert.Models.Country", b =>
@@ -96,6 +97,20 @@ namespace Eurecert.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.EducationType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EducationTypes");
                 });
 
             modelBuilder.Entity("Eurecert.Models.InstitutionalFunction", b =>
@@ -114,6 +129,34 @@ namespace Eurecert.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("InstitutionalFunctions");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.PublicityMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PublicityMethods");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.ReferenceMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReferenceMethods");
                 });
 
             modelBuilder.Entity("Eurecert.Models.SalesRepresentative", b =>
@@ -135,7 +178,7 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SalesRepresentative");
+                    b.ToTable("SalesRepresentatives");
                 });
 
             modelBuilder.Entity("Eurecert.Models.ToBeInformed", b =>
@@ -149,7 +192,7 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ToBeInformed");
+                    b.ToTable("ToBeInformeds");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

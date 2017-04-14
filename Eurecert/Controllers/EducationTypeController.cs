@@ -22,7 +22,7 @@ namespace Eurecert.Controllers
         // GET: EducationType
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EducationType.ToListAsync());
+            return View(await _context.EducationTypes.ToListAsync());
         }
 
         // GET: EducationType/Details/5
@@ -33,7 +33,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var educationType = await _context.EducationType
+            var educationType = await _context.EducationTypes
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (educationType == null)
             {
@@ -73,7 +73,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var educationType = await _context.EducationType.SingleOrDefaultAsync(m => m.Id == id);
+            var educationType = await _context.EducationTypes.SingleOrDefaultAsync(m => m.Id == id);
             if (educationType == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var educationType = await _context.EducationType
+            var educationType = await _context.EducationTypes
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (educationType == null)
             {
@@ -139,15 +139,15 @@ namespace Eurecert.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var educationType = await _context.EducationType.SingleOrDefaultAsync(m => m.Id == id);
-            _context.EducationType.Remove(educationType);
+            var educationType = await _context.EducationTypes.SingleOrDefaultAsync(m => m.Id == id);
+            _context.EducationTypes.Remove(educationType);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         private bool EducationTypeExists(int id)
         {
-            return _context.EducationType.Any(e => e.Id == id);
+            return _context.EducationTypes.Any(e => e.Id == id);
         }
     }
 }

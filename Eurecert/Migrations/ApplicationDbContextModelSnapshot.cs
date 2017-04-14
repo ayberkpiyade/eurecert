@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Eurecert.Data;
 
-namespace Eurecert.Data.Migrations
+namespace Eurecert.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170413183246_ReferenceMethodandPublicity")]
-    partial class ReferenceMethodandPublicity
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -67,6 +66,38 @@ namespace Eurecert.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Eurecert.Models.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CityName")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
             modelBuilder.Entity("Eurecert.Models.EducationType", b =>
                 {
                     b.Property<int>("Id")
@@ -78,7 +109,25 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EducationType");
+                    b.ToTable("EducationTypes");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.InstitutionalFunction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FunctionCode")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("FunctionName")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InstitutionalFunctions");
                 });
 
             modelBuilder.Entity("Eurecert.Models.PublicityMethod", b =>
@@ -92,7 +141,7 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PublicityMethod");
+                    b.ToTable("PublicityMethods");
                 });
 
             modelBuilder.Entity("Eurecert.Models.ReferenceMethod", b =>
@@ -106,7 +155,43 @@ namespace Eurecert.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReferenceMethod");
+                    b.ToTable("ReferenceMethods");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.SalesRepresentative", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SalesRepresentatives");
+                });
+
+            modelBuilder.Entity("Eurecert.Models.ToBeInformed", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BeInformed")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ToBeInformeds");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>

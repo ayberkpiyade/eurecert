@@ -22,7 +22,7 @@ namespace Eurecert.Controllers
         // GET: SalesRepresentative
         public async Task<IActionResult> Index()
         {
-            return View(await _context.SalesRepresentative.ToListAsync());
+            return View(await _context.SalesRepresentatives.ToListAsync());
         }
 
         // GET: SalesRepresentative/Details/5
@@ -33,7 +33,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var salesRepresentative = await _context.SalesRepresentative
+            var salesRepresentative = await _context.SalesRepresentatives
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (salesRepresentative == null)
             {
@@ -73,7 +73,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var salesRepresentative = await _context.SalesRepresentative.SingleOrDefaultAsync(m => m.Id == id);
+            var salesRepresentative = await _context.SalesRepresentatives.SingleOrDefaultAsync(m => m.Id == id);
             if (salesRepresentative == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Eurecert.Controllers
                 return NotFound();
             }
 
-            var salesRepresentative = await _context.SalesRepresentative
+            var salesRepresentative = await _context.SalesRepresentatives
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (salesRepresentative == null)
             {
@@ -139,15 +139,15 @@ namespace Eurecert.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var salesRepresentative = await _context.SalesRepresentative.SingleOrDefaultAsync(m => m.Id == id);
-            _context.SalesRepresentative.Remove(salesRepresentative);
+            var salesRepresentative = await _context.SalesRepresentatives.SingleOrDefaultAsync(m => m.Id == id);
+            _context.SalesRepresentatives.Remove(salesRepresentative);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         private bool SalesRepresentativeExists(int id)
         {
-            return _context.SalesRepresentative.Any(e => e.Id == id);
+            return _context.SalesRepresentatives.Any(e => e.Id == id);
         }
     }
 }
