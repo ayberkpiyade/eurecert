@@ -21,6 +21,7 @@ namespace Eurecert.Data
         public DbSet<EducationType> EducationTypes { get; set; }
         public DbSet<ReferenceMethod> ReferenceMethods { get; set; }
         public DbSet<PublicityMethod> PublicityMethods { get; set; }
+        public DbSet<Service> Services { get; set; }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -35,5 +36,7 @@ namespace Eurecert.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Eurecert.Models.Service> Service { get; set; }
     }
 }
